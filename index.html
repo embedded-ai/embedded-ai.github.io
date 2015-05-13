@@ -6,9 +6,14 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/robotodraft.css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/libs/animationFrame.js"></script>
+    <script type="text/javascript" src="js/Nodes.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
@@ -18,11 +23,12 @@
   <style type="text/css">
     body
     {
-      font-family: RobotoDraft; 
+      font-family: Quicksand;
+      font-weight: 300;
     }
     h1,h2,h3,h4
     {
-      font-family: RobotoDraft;
+      font-family: Quicksand;
       font-weight: 300;
     }
     .row
@@ -32,11 +38,12 @@
     #header
     {
       position: relative;
+      overflow: hidden;
     }
     #header .page-name
     {
       position: relative;
-      top:250px;
+      top:500px;
       font-weight: 300;
       font-size: 56px;
       color: #1F2036;
@@ -45,7 +52,7 @@
     #header .page-slogan
     {
       position: relative;
-      top:250px;
+      top:500px;
       font-weight: 300;
       font-size: 18px;
       color: #7986cb;
@@ -63,14 +70,14 @@
     }
     #header .banner
     {
-      background-image: url(images/header.jpg);
-      background-position: center 0;
-      background-repeat: no-repeat;
-      height: 400px;
+     height: 650px;
+    }
+    #header #canvas
+    {
+      position: absolute;
     }
     .row-header
     {
-       
         height:70px;
         overflow: hidden;
     }
@@ -149,18 +156,19 @@
     {
       position: relative;
       display: inline-block;
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       margin: 10px;
       text-align: center;
+      overflow: hidden;
     }
   </style>
   <script src='js/scrollReveal.min.js'></script>
     <script>
       $(function(){
         window.sr = new scrollReveal();
-        
+        Nodes.init();
       });
     </script>
   </head>
@@ -197,11 +205,9 @@
     <div class="row banner">
      <!-- <img src="images/header.jpg"> -->
       <div>
-        <div class="logo-credit">
-          <a href="http://www.freepik.com/free-photos-vectors/banner">Banner vector designed by Freepik</a>
-        </div>
-        <div class="page-name">Embedded AI</div>
-        <div class="page-slogan">an academic group focused on intelligent systems</div>
+        <canvas id='canvas'></canvas>
+        <div class="page-name" data-sr="scale up 20%, over 0.5s, wait 0.3s">Embedded AI</div>
+        <div class="page-slogan"  data-sr="scale up 20%, over 0.5s, , wait 0.6s">an academic group focused on intelligent systems</div>
       </div>
       
     </div>
@@ -217,7 +223,7 @@
       <div class="bus"  data-sr='enter'></div>
     </div>
       <div class="container">
-        <div class="header-name" data-sr='enter left, over 0.5s, reset'><h1>the group</h1></div>
+        <div class="header-name" data-sr='enter left, over 0.5s'><h1>the group</h1></div>
       </div>
     </div>
     <div class="row-body">
@@ -228,7 +234,7 @@
           </p>
         </div>
         <div class="col-md-6 visible-md visible-lg" style='overflow:hidden'>
-          <img data-sr='enter, reset'src="images/cpu1.png" style="  height: 250px;
+          <img data-sr='enter'src="images/cpu1.png" style="  height: 250px;
   margin-top: 10px;">
         </div>
       </div>
@@ -246,7 +252,7 @@
       <div class="bus"  data-sr='enter'></div>
     </div>
       <div class="container">
-        <div class="header-name" data-sr='enter left, over 0.5s, reset'><h1>projects</h1></div>
+        <div class="header-name" data-sr='enter left, over 0.5s'><h1>projects</h1></div>
       </div>
     </div>
     <div class="row-body">
@@ -257,7 +263,7 @@
           </p>
         </div>
         <div class="col-md-6 visible-md visible-lg" style='overflow:hidden'>
-          <img data-sr='enter, reset' src="images/project.png" style="  height: 250px;
+          <img data-sr='enter' src="images/project.png" style="  height: 250px;
   margin-top: 10px;">
         </div>
       </div>
@@ -303,32 +309,32 @@
       <div class="bus"  data-sr='enter'></div>
     </div>
       <div class="container">
-        <div class="header-name" data-sr='enter left, over 0.5s, reset'><h1>Participants</h1></div>
+        <div class="header-name" data-sr='enter left, over 0.5s'><h1>participants</h1></div>
       </div>
     </div>
     <div class="row-body">
       <div class="container">
 
        
-          <div class='frame participants-img' data-sr="scale up 20%, over 0.5s, reset">
-            <div>
+          <div data-sr="scale up 20%, over 0.5s, reset" style="display:inline-block">
+            <div class='frame participants-img'>
               <img src="https://avatars2.githubusercontent.com/u/5301437?v=3&s=400" class="avatar"/>
-              <div class="nome"><span class="first-name">Sergio </span>Filipe</div>
             </div>
+            <div class="nome"><span class="first-name">Sergio </span>Filipe</div>
           </div>
 
-          <div class='frame participants-img' data-sr="scale up 20%, over 0.5s, reset">
-            <div>
+          <div data-sr="scale up 20%, over 0.5s, reset" style="display:inline-block">
+            <div class='frame participants-img'>
               <img src="https://avatars0.githubusercontent.com/u/11878281?v=3&s=400" class="avatar"/>
-              <div class="nome"><span class="first-name">Augusto </span>Damasceno</div>
             </div>
+            <div class="nome"><span class="first-name">Augusto </span>Damasceno</div>
           </div>
 
-          <div class='frame participants-img' data-sr="scale up 20%, over 0.5s, reset">
-            <div>
+          <div data-sr="scale up 20%, over 0.5s, reset" style="display:inline-block">
+            <div class='frame participants-img'>
               <img src="https://avatars0.githubusercontent.com/u/11878456?v=3&s=400" class="avatar"/>
-              <div class="nome"><span class="first-name">Carlos </span>Bentzen</div>
             </div>
+            <div class="nome"><span class="first-name">Carlos </span>Bentzen</div>
           </div>
 
     </div>
