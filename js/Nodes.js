@@ -54,7 +54,9 @@ var Nodes = {
       Nodes.reactionSensitivity -= 50;
       if(Nodes.reactionSensitivity == 0){
         clearInterval(Nodes.interval);
-        Nodes.reactionSensitivity = 2; 
+        Nodes.reactionSensitivity = 2;
+        Nodes.mouse.x = -1000;
+        Nodes.mouse.y = -1000;
       }
     },3000);
 
